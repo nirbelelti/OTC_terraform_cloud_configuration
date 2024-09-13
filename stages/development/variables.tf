@@ -61,4 +61,9 @@ variable "project_name" {
   description = "The project's nane"
 }
 
+variable "cidr" {
+  default = "192.168.0.0/16"
+  type    = string
+}
+
 
