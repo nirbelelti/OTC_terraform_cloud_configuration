@@ -50,3 +50,9 @@ data "opentelekomcloud_images_image_v2" "ubuntu" {
   visibility = "public"
 }
 
+module "enable_cce_creation" {
+  source = "../../modules/enable_cce_creation"
+    project = var.project_name
+    stage_name = var.stage_name
+}
+
