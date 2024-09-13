@@ -1,3 +1,4 @@
 .idea
 .idea/
 TerraformCloudTelekomSetup.iml
+/stages/development/.terraform.lock.hcl
