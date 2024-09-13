@@ -44,3 +44,9 @@ module "vpc" {
   tags       = var.tags
 }
 
+#Set ubuntu on the server image on the server
+data "opentelekomcloud_images_image_v2" "ubuntu" {
+  name       = "Standard_Ubuntu_20.04_latest"
+  visibility = "public"
+}
+
