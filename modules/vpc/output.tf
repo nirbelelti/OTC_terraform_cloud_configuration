@@ -13,7 +13,3 @@ output "subnets" {
     } 
   }
 }
-
-output "snat_enabled" {
-  value = opentelekomcloud_vpc_v1.vpc.shared  
-}
