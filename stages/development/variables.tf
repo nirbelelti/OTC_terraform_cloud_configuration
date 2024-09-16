@@ -1,5 +1,4 @@
 variable "password" {
-  default = "Your Passwoerd"
   type = string
   description = "Do not fill this variable here, it is ONLY for demo purposes, please use TF_VARS (https://developer.hashicorp.com/terraform/language/values/variables)"
 
@@ -11,7 +10,6 @@ variable "domain_name" {
 
 }
 variable "tenant_name" {
-  default = "You tatnent name"
   type = string
   description = "Do not fill this variable here, it is ONLY for demo purposes, please use TF_VARS (https://developer.hashicorp.com/terraform/language/values/variables)"
 }
