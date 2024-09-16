@@ -97,5 +97,11 @@ module "load_balancer" {
 
 }
 
+module "swr" {
+  source     = "../../modules/swr"
+  name       = var.project_name
+  stage_name = var.stage_name
+}
+
 
 
