@@ -103,5 +103,38 @@ module "swr" {
   stage_name = var.stage_name
 }
 
+module "configuration" {
+  source            = "../../modules/configuration"
+  name              = var.project_name
+  stage_name        = var.stage_name
+  create_bucket     = true
+  bucket_object_key = "configuration-secrets"
 
+    configuration_secrets = {
+      vpc = {
+        vpc                     = module.vpc.vpc_name
+      },
+      elb = {
+        elb_id                  = module.load_balancer.elb_id
+        elb_public_ip           = module.load_balancer.elb_public_ip
+      },
+      cce = {
+        kubectl_config          = module.cce.kubeconfig_file
+        cluster_lb_public_ip    = module.cce.cluster_lb_public_ip
+        node_pool_id            = module.cce.node_pool_id
+        cce_id                  = module.cce.cluster_name
+        cce_name                = module.cce.cluster_id
+      },
+      swr = {
+        name                    = module.swr.swr_data.name
+        organization            = module.swr.swr_data.organization
+        id                      = module.swr.swr_data.id
+        path                    = module.swr.swr_data.path
+      },
+      dns = {
+        name = module.dns.name
+        recordset = module.dns.dns_recordset
+      }
+    }
 
+}
