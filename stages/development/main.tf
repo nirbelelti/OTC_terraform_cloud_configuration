@@ -89,5 +89,13 @@ module "dns" {
   depends_on = [module.vpc]
 }
 
+module "load_balancer" {
+  source = "../../modules/load_balancer"
+    name = var.project_name
+    stage_name = var.stage_name
+    subnet_id = values(module.vpc.subnets)[0].subnet_id
+
+}
+
 
 
