@@ -66,4 +66,7 @@ variable "cidr" {
   type    = string
 }
 
+variable "node_flavor" {
+  default = "s2.medium.1"
+}
 
