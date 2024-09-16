@@ -4,7 +4,6 @@ variable "password" {
 
 }
 variable "domain_name" {
-  default = "Your Domain name"
   type = string
   description = "Do not fill this variable here, it is ONLY for demo purposes, please use TF_VARS (https://developer.hashicorp.com/terraform/language/values/variables)"
 
