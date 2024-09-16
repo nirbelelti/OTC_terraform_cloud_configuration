@@ -79,4 +79,15 @@ module "cce" {
   depends_on = [module.vpc , module.enable_cce_creation]
 }
 
+module "dns" {
+  source = "../../modules/dns"
+    domain_name = "demo.com"
+    name = var.project_name
+    stage_name = var.stage_name
+    tags = var.tags
+
+  depends_on = [module.vpc]
+}
+
+
 
