@@ -60,23 +60,23 @@ module "enable_cce_creation" {
 
 module "cce" {
   source      = "../../modules/cce"
-  name                = "myproject"
-  stage_name          = "dev"
-  region              = "eu-de"
-  vpc_id              = "your-vpc-id"
-  subnet_id           = "your-subnet-id"
+  name                = var.project_name
+  stage_name          =  var.stage_name
+  region              = var.region
+  vpc_id              = module.vpc.vpc.id
+  subnet_id           = values(module.vpc.subnets)[0].subnet_id
   flavor_id           =  var.node_flavor
   service_cidr        = "192.168.0.0/16"
   node_flavor         = var.node_flavor
   node_count          = 3
   availability_zones  = ["eu-de-01", "eu-de-02", "eu-de-03"]
-  key_pair            = "my-key-pair"
   node_os             = "EulerOS"
   node_storage_type   = "SSD"
   node_storage_size   = 100
   autoscaling_max_nodes = 8
   autoscaling_min_nodes = 1
   kubeconfig_expiry_date = "2024-12-31"
+  depends_on = [module.vpc , module.enable_cce_creation]
 }
 
 

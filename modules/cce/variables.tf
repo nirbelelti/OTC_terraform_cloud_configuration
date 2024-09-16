@@ -160,10 +160,6 @@ variable "availability_zones" {
   default     = []
 }
 
-variable "key_pair" {
-  description = "The key pair name for the node pool."
-  type        = string
-}
 
 variable "node_os" {
   description = "The OS for the node pool (e.g., EulerOS, Ubuntu)."

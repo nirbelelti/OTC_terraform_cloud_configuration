@@ -56,7 +56,7 @@ resource "opentelekomcloud_cce_node_pool_v3" "node_pool" {
   flavor             = var.node_flavor
   initial_node_count = var.node_count
   availability_zone  = var.availability_zones[0]
-  key_pair           = var.key_pair
+  key_pair           = opentelekomcloud_compute_keypair_v2.cluster_keypair.name
   os                 = var.node_os
 
   root_volume {
